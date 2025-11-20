@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+#
+while [ true ] 
+do
+    workspace_number=$(hyprctl activeworkspace | grep -o 'ID .*' | cut -d ' ' -f2)
+
+    if [ $workspace_number -eq 5 ] 
+    then
+        hyprctl dispatch workspaceopt allfloat
+        alacritty -o window.opacity=0.0
+    fi
+
+done

@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+#
+#
+#killall swaybg
+#workspace_number=$(hyprctl activeworkspace | grep -o 'ID .*' | cut -d ' ' -f2)
+#swww img ~/.config/hypr/wallpapers/$workspace_number.png --transition-type random
+#swaybg -i ~/.config/hypr/wallpapers/$workspace_number.png
+
+max=$(cd ~/.config/hypr/wallpapers; ls *.png | wc -l)
+num=$(swww query | tail --bytes=7 | cut -d '.' -f 1)
+
+s=$(swww query | tail --bytes=7 | head --bytes=1)
+if [[ "$s" == "/" ]]
+then
+	num=$(swww query | tail --bytes=6 | cut -d '.' -f 1)
+fi
+
+
+if [[ "$1" == "n" ]]
+then
+	newNum=$((num+1))
+	if [[ $newNum -gt $max ]]
+	then
+		newNum=1
+	fi
+else
+	newNum=$((num-1))
+	if [[ $newNum -lt 1 ]]
+	then
+		newNum=$max
+	fi
+fi
+
+swww img ~/.config/hypr/wallpapers/$newNum.png --transition-type random

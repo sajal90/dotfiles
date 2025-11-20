@@ -24,13 +24,13 @@ get_icon() {
 }
 
 # Notify
-notify_user() {
-	notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $current%"
-}
+#notify_user() {
+#	notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $current%"
+#}
 
 # Change brightness
 change_backlight() {
-	brillo "$1" && get_icon && notify_user
+	brillo "$1" && get_icon #&& notify_user
 }
 
 # Execute accordingly

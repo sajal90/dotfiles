@@ -1,0 +1,11 @@
+#!/bin/sh
+
+name=$(bemenu -p 'Enter File name:' -H 35 --hp 10 --fn 'JetBrains Mono Nerd [16]' < /dev/null | sed 's/ /%20/g')
+
+if [[ $name == *"."* ]]; then
+	ext=$( echo $name | cut -d '.' -f 2)
+	cd ~/stuff/$ext/
+	alacritty --title nvim -e sh -c "nvim ~/stuff/$ext/$name"
+else
+	alacritty --title nvim -e sh -c "nvim ~/stuff/$name/temp.$name"
+fi

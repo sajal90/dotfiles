@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+if  pidof mpv > /dev/null; then
+	playerctl -p mpv, play
+else
+	if [[ "$1" == "p" ]]
+	then
+		mpv --shuffle ~/music/pokemon
+	else
+		mpv --shuffle --volume=50 ~/music/yt
+	fi
+fi

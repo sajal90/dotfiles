@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd ~/pictures/ss/
+grim
+
+exit

@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+number=$(cd ~/.config/hypr/wallpapers; ls *.png | wc -l)
+cd ~/.config/hypr/wallpapers
+mv 1.png t.png
+for((i=2;i<=$number;i++)); 
+do
+    j=$((i-1))
+    mv $i.png $j.png
+done
+mv t.png $((i-1)).png

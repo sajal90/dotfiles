@@ -59,6 +59,7 @@ tooltip label {
 #custom-power_btn,
 #custom-weather,
 #custom-media,
+#custom-wallpaper,
 #cpu,
 #disk,
 #memory,
@@ -100,6 +101,10 @@ tooltip label {
 
 clock {
   border-radius: 10px;
+}
+
+#custom-music {
+  border-radius: 10px 0px 0px 10px;
 }
 
 #battery.warning {
@@ -158,10 +163,10 @@ clock {
     background-color: red;
   }
 }
+
 @keyframes warning-animation {
   to {
     color: #ffffff;
     background-color: orange;
   }
 }
-
